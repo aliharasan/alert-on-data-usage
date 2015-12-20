@@ -90,16 +90,16 @@ public class FragMain extends Fragment {
 
         if (datacheck){
             new AlertDialog.Builder(getActivity())
-                    .setTitle("اجازه استفاده از دیتا")
-                    .setMessage("دسترسی به نت از طریق دیتا فعال هست ، آیا میخواهید ادامه دهید ؟")
-                    .setPositiveButton("خیر", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            MakeNegativeDecision();
-                        }
-                    })
-                    .setNegativeButton("بله", new DialogInterface.OnClickListener() {
+                    .setTitle("Mobile data check")
+                    .setMessage("Mobile data is on , it will cost you , do you want to use it ?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             MakePositiveDecision();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            MakeNegativeDecision();
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
@@ -111,19 +111,18 @@ public class FragMain extends Fragment {
     }
 
     private void MakePositiveDecision() {
-        red_green_status.setText("دستور استفاده از دیتا صادر شد");
-
+        red_green_status.setText("data Usage permission Granted");
         red_green_status.setTextColor(getResources().getColor(R.color.green));
     }
 
     private void MakeNegativeDecision() {
-        red_green_status.setText("دستور عدم استفاده از دیتا صادر شد");
+        red_green_status.setText("data usage permission denied");
         red_green_status.setTextColor(getResources().getColor(R.color.red));
 
     }
 
     private void MakeDestructiveDecsion(){
-        red_green_status.setText("به WiFi متصل هستید.");
+        red_green_status.setText("connected to WIFI");
         red_green_status.setTextColor(getResources().getColor(R.color.black));
     }
 
